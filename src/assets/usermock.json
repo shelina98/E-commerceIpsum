@@ -1,0 +1,18 @@
+[{
+  "uid":1,
+  "username": "johnd",
+  "name": "John",
+  "surname": "Doe",
+  "password": "m38rmF$",
+  "email": "John@gmail.com",
+  "imgUrl": ""
+},
+{
+"uid":1,
+"username":"dkapo",
+"name":"Dritan",
+"surname":"Kapo",
+"password":"m38rmF$",
+"email":"Dritan@gmail.com",
+"imgUrl": ""
+}]

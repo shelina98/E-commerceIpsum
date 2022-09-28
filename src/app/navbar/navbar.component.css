@@ -1,0 +1,25 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar {
+  padding: 0px 20px;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.cart{
+  padding: 5px 0px ;
+  margin-left:  20px;
+  font-weight: 100;
+}
+
+.cart:hover{
+  border-bottom: 1px solid #2557a7;
+  cursor : pointer;
+}
+.vertical {
+  background-color: lightgray;
+  width: 1px;
+  height: 20px;
+}
+

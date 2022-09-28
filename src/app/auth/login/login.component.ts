@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private as: AuthService,
-    private rt: Router,
+    private rt: Router
   ) {
 
   }
@@ -31,17 +31,13 @@ export class LoginComponent implements OnInit {
   }
 
   onClick(email: string, password: string) {
-    this.correctCredentials = true;
-    this.as.getAccountInfo(email, password).then(() => {
-      if (true) {
-        this.correctCredentials = false;
-      }
-      else
-      {
-        this.as.login();
-
-      }
-    });
-
+   if(this.as.getAccountInfo(email,password)) {
+     this.correctCredentials = true;
+     this.as.login(this.as.getAccountInfo(email,password)?.username)
+     this.rt.navigate(['/dashboard'])
+   }
+    else {
+     this.correctCredentials = false;
+   }
   }
 }
