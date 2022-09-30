@@ -14,7 +14,10 @@
     <button mat-menu-item (click)="signIn()"> <span> {{signinOR}} </span></button>
   </mat-menu>
   <div class="vertical" *ngIf="!isSmall" ></div>
-  <div class="cart" (click)="goToCart()" *ngIf="isLoggedIn && !isSmall"> Cart</div>
+
+  <button mat-icon-button *ngIf="isLoggedIn && !isSmall" (click)="goToCart()">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
   <div class="cart" (click)="signIn()" *ngIf="!isLoggedIn && !isSmall"> Log In</div>
 
 </mat-toolbar>

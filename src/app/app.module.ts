@@ -14,6 +14,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {BuyerProductsComponent} from "./buyer-products/buyer-products.component";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {DataService} from "./data.services";
 
 
 
@@ -23,6 +26,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavbarComponent,
     DashboardComponent,
     PageNotFoundComponent,
+    BuyerProductsComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AuthModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      DataService, { dataEncapsulation: false }
+    ),
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
