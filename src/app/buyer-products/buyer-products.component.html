@@ -9,8 +9,8 @@
     <img  mat-card-image src="{{product.imgUrl}}" alt="Photo of a Shiba Inu">
 
     <mat-card-actions>
-      <button mat-button class="buy">Add to Cart</button>
-      <button mat-button class="details">View Details</button>
+      <button mat-button class="buy" (click)="addToCart(product)">Add to Cart</button>
+      <button mat-button class="details" (click)="viewDetails(product)">View Details</button>
     </mat-card-actions>
   </mat-card>
 </div>

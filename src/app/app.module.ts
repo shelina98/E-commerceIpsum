@@ -19,6 +19,7 @@ import {DataService} from "./data.services";
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 
@@ -46,7 +47,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
 
   ],
   providers: [DataService],
