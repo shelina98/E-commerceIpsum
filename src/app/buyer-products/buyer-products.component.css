@@ -1,11 +1,39 @@
-.example-card {
-  max-width: 400px;
-}
-
 .shell {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: red;
   flex-direction: row;
+  background-color: lightgray;
+  justify-content: space-around;
+  padding-top: 20px;
 }
+.example-card {
+  width: 250px;
+}
+.mat-card-avatar {
+  height: 0px;
+  width: 0px;
+}
+.mat-card-header {
+}
+
+.mat-card-image {
+  width: calc(100%);
+  margin: 0px;
+}
+.buy {
+  color: #2557a7;
+}
+.buy:hover {
+  color: white;
+  background-color: #2557a7;
+}
+
+.details {
+  color: gray;
+}
+.details:hover {
+  color: white;
+  background-color: gray;
+}
+
