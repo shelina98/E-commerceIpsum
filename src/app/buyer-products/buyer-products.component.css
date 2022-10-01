@@ -1,5 +1,11 @@
-.fa-heart :hover {
+.example-card {
+  max-width: 400px;
+}
 
-  color: red;
+.shell {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   background-color: red;
+  flex-direction: row;
 }

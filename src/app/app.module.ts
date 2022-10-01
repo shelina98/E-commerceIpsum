@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from "./auth/auth.module";
@@ -17,6 +16,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {BuyerProductsComponent} from "./buyer-products/buyer-products.component";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {DataService} from "./data.services";
+import {MatCardModule} from "@angular/material/card";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 
@@ -36,15 +38,18 @@ import {DataService} from "./data.services";
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      DataService, { dataEncapsulation: false }
+      DataService, {dataEncapsulation: false}
     ),
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatProgressBarModule
 
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

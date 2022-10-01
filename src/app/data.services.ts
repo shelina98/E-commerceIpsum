@@ -15,7 +15,7 @@ export class DataService implements InMemoryDbService {
         description: 'Lorem ipsum . Voluptatem excepturi magnam nostrum dolore recusandae',
         price: '$40',
         amount:10,
-        imgUrl:""
+        imgUrl:"assets/logo.jpeg"
       },
       {
         id: 2,
@@ -23,7 +23,7 @@ export class DataService implements InMemoryDbService {
         description: 'amet consectetur adipisicing elit.Lorem ipsum dolor sit ',
         price: '$80',
         amount:10,
-        imgUrl:""
+        imgUrl:"assets/logo.jpeg"
       },
       {
         id: 3,
@@ -31,7 +31,7 @@ export class DataService implements InMemoryDbService {
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '$30',
         amount:10,
-        imgUrl:""
+        imgUrl:"assets/logo.jpeg"
       }
     ];
     return { products };
