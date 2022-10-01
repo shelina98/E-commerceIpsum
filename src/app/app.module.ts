@@ -20,6 +20,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -29,7 +31,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     NavbarComponent,
     DashboardComponent,
     PageNotFoundComponent,
-    BuyerProductsComponent
+    BuyerProductsComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
@@ -48,9 +51,11 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatCardModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
 
   ],
+  entryComponents:[ProductDetailComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
