@@ -1,0 +1,75 @@
+<div class="flex-it">
+  <mat-card class="signup-form">
+    <form [formGroup] ='signupForm' class="form-group">
+      <mat-card-header> <label>Register</label></mat-card-header>
+      <div>
+        <mat-form-field>
+          <input
+            matInput type="text" id="name" formControlName="name" class="form-control" placeholder="Name"/>
+          <mat-error *ngIf="signupForm.get('name')?.hasError('required')">Name is required!</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput type="text" id="surname" formControlName="surname" class="form-control" placeholder="Surname"/>
+          <mat-error *ngIf="signupForm.get('surname')?.hasError('required')">Surname is required!</mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="E-mail"
+          />
+          <mat-error *ngIf="signupForm.get('email')?.hasError('required')"
+          >Email is required!</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Password"
+          />
+          <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Password is required!</mat-error>
+          <mat-error
+            *ngIf="
+              signupForm.controls['password'].touched &&
+              signupForm.controls['password'].hasError('minlength')">Password needs to be at least 8 characters</mat-error>
+
+        </mat-form-field>
+      </div>
+
+
+      <input type="file"  name="image" #image required><br><br>
+
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="
+          onClick( signupForm.get('email')?.value)" [disabled]="!signupForm.valid">
+        Register
+      </button>
+    </form>
+    <mat-error *ngIf="!emailUnique" class="post-click-error">
+      There exists an account with this email!</mat-error>
+    <a [routerLink]="['/login']">You have an account? Log in.</a>
+  </mat-card>
+
+</div>
+
+

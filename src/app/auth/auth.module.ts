@@ -7,16 +7,18 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {RouterModule} from "@angular/router";
+import {SignupComponent} from "./signup/signup.component";
 
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent, SignupComponent
   ],
   exports: [
-    LoginComponent
+    LoginComponent, SignupComponent
   ],
   providers:[AuthService],
   imports: [
@@ -25,7 +27,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule
 
   ]
 })

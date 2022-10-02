@@ -20,6 +20,6 @@
         (click)="onClick(loginForm.get('email')?.value,loginForm.get('password')?.value)"> Login
       </button>
     </form>
-    <a class="link"> You don't have an account? Register now. </a>
+    <a  [routerLink]="['/signup']" class="link"> You don't have an account? Register now. </a>
   </mat-card>
 </div>

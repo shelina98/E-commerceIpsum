@@ -13,6 +13,7 @@ export class AuthService {
   constructor( private userS: UsersService) {
   }
   LoggedInUser: User | undefined
+  UserExist: User | undefined
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
   usernameSubject = new BehaviorSubject<string>(this.hasUsername())
   /**
@@ -64,6 +65,8 @@ export class AuthService {
   }
 
 
+
+
 //login
   getAccountInfo(email: string, password: string){
        this.userS.getAllUsers().forEach(
@@ -73,6 +76,17 @@ export class AuthService {
          }
        })
     return this.LoggedInUser
+  }
+
+//sign up
+  getAccountWithGivenEmail(email: string): User {
+    this.userS.getAllUsers().forEach(
+      user => {
+        if(user.email == email ) {
+          this.UserExist = user
+        }
+      })
+    return <User>this.UserExist
   }
 
 }

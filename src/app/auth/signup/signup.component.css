@@ -3,16 +3,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-size: cover;
   background-color: #f3f2f1;
-  height:calc(100% - 70px);
+  background-size: cover;
+  height: calc(100% - 64px);
 }
 
-.login-form {
+.signup-form {
   display: inline-block;
   width: fit-content;
   background-color: rgba(255, 255, 256, 1);
-  padding: 7vw;
+  padding: 6.5vh 7vw;
 }
 
 .mat-card-header {
@@ -22,15 +22,15 @@
   font-size: 1.37rem;
 }
 
-.mat-focus {
-  color: red;
-}
-
 .mat-raised-button {
   background-color: #2557a7;
   color: white;
   font-family: "Montserrat", sans-serif;
-  margin-bottom: 2vh;
+  margin: 2vh 0;
+}
+
+.mat-form-field {
+  margin-bottom: 1vh;
 }
 
 a {
