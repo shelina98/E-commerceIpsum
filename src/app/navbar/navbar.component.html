@@ -1,22 +1,23 @@
 <mat-toolbar>
-  <span> <img src="assets/logoipsum-284.svg"  alt=""/></span>
+  <span> <img src=assets/logoipsum-284.svg"/></span>
   <span class="example-spacer"></span>
-  <button mat-icon-button (click)="goToHomePage()">
-    <mat-icon>home</mat-icon>
-  </button>
-  <button mat-button *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" style="margin-right:10px">
-    {{username}}
-  </button>
+  <div *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" class="profile">
+    <img src="assets/product/cabbage.png"  class="profilePic"/>
+    <p style="margin-top: 20px"> {{username}} </p>
+  </div>
   <mat-menu #menu="matMenu">
     <button mat-menu-item *ngIf="isLoggedIn" (click)="goToProfile()" style="margin-right:10px">
       <span>Profile</span>
     </button>
     <button mat-menu-item (click)="signIn()"> <span> {{signinOR}} </span></button>
   </mat-menu>
-  <div class="vertical"></div>
 
+  <div class="vertical"></div>
+  <button mat-icon-button (click)="goToHomePage()">
+    <mat-icon class="material-icons-outlined">home</mat-icon>
+  </button>
   <button mat-icon-button *ngIf="isLoggedIn" (click)="goToCart()">
-    <mat-icon>shopping_cart</mat-icon>
+    <span class="material-icons-outlined"> shopping_bag </span>
   </button>
   <div class="cart" (click)="signIn()" *ngIf="!isLoggedIn"> Log In</div>
 

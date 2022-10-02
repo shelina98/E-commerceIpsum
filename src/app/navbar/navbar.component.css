@@ -5,14 +5,13 @@
   padding: 0px 20px;
   border-bottom: 1px solid lightgray;
   background-color: white;
+  height: 55px;
 }
-
 .cart{
   padding: 5px 0px ;
   margin-left:  20px;
   font-weight: 100;
 }
-
 .cart:hover{
   border-bottom: 1px solid #2557a7;
   cursor : pointer;
@@ -22,4 +21,20 @@
   width: 1px;
   height: 20px;
 }
+.profilePic {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
 
+}
+.profile {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.profile:hover {
+  color: #2557a7;
+}
