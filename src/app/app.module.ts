@@ -23,6 +23,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {ChangeRootComponent} from "./_shared/change-root/change-root.component";
+import {NgxStarRatingModule} from "ngx-star-rating";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -54,8 +56,9 @@ import {ChangeRootComponent} from "./_shared/change-root/change-root.component";
     MatDividerModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    MatDialogModule
-
+    MatDialogModule,
+    NgxStarRatingModule,
+    FormsModule,
   ],
   entryComponents:[ProductDetailComponent],
   providers: [DataService],

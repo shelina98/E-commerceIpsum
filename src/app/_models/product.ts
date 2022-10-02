@@ -6,5 +6,6 @@ export class Product {
   description!: string;
   amount!: number;
   imgUrl?: string;
+  rating!: number;
 
 }

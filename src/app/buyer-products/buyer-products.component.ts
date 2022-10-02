@@ -8,6 +8,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {take} from "rxjs/operators";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductDetailComponent} from "../product-detail/product-detail.component";
+import {CartService} from "../_services/cart.service";
 
 
 
@@ -25,7 +26,8 @@ export class BuyerProductsComponent implements OnInit, OnDestroy {
               private route: Router,
               private auth: AuthService,
               private snackBar: MatSnackBar,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private cartService: CartService) { }
 
 
    ngOnInit() {
@@ -42,7 +44,7 @@ export class BuyerProductsComponent implements OnInit, OnDestroy {
     this.auth.isLoggedInOb().pipe(take(1)).subscribe(
       res => {
         if (res) {
-          // this.cartService.addToCart(product);
+           this.cartService.addToCart(product);
         } else {
           console.log('not added')
           this.snackBar.open('You have to login to add items to cart.', 'OK', {

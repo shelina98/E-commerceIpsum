@@ -8,8 +8,9 @@ import {Product} from "../_models/product";
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
+  rating;
   constructor(@Inject(MAT_DIALOG_DATA) public data: Product) {
-
+   this.rating = data.rating
   }
 }
 
