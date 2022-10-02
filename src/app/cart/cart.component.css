@@ -1,0 +1,33 @@
+.flex-it {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  max-height: 100%;
+}
+.mat-elevation-z8 {
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: lightgray;
+  padding: 20px;
+  align-self: center;
+}
+.clear {
+  background-color: red;
+  color: white;
+  margin: 0px 20px 0px 20px;
+}
+
+.buy{
+  background-color: green;
+  color: white;
+}
+
+
+table {
+  margin-top: 20px;
+  width: 100%;
+}
+th {
+  color: #2557a7;
+  font-size: 14px;
+}

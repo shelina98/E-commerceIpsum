@@ -25,6 +25,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {ChangeRootComponent} from "./_shared/change-root/change-root.component";
 import {NgxStarRatingModule} from "ngx-star-rating";
 import {FormsModule} from "@angular/forms";
+import {CartComponent} from "./cart/cart.component";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 
 
@@ -36,7 +39,8 @@ import {FormsModule} from "@angular/forms";
     PageNotFoundComponent,
     BuyerProductsComponent,
     ProductDetailComponent,
-    ChangeRootComponent
+    ChangeRootComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +63,9 @@ import {FormsModule} from "@angular/forms";
     MatDialogModule,
     NgxStarRatingModule,
     FormsModule,
+    MatTableModule,
+    MatSortModule,
+
   ],
   entryComponents:[ProductDetailComponent],
   providers: [DataService],
