@@ -18,6 +18,7 @@ export class ChangeRootComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ChangeRootComponent>) {
       this.message = data.message;
+      this.title = 'Not Logged In'
       if (data.buttonText) {
         this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
         this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
@@ -26,6 +27,10 @@ export class ChangeRootComponent implements OnInit {
 
   onConfirmClick(): void {
     this.router.navigate(['/login'])
+    this.dialogRef.close(true);
+  }
+  onCancelClick(): void {
+    this.router.navigate([''])
     this.dialogRef.close(true);
   }
 

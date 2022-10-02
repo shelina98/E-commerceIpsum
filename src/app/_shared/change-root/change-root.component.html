@@ -1,12 +1,17 @@
-<h1 mat-dialog-title>
-  {{title}}
-</h1>
-<mat-dialog-content>
-  <p>
-    {{message}}
-  </p>
-</mat-dialog-content>
-<mat-dialog-actions align="center">
-  <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
-  <button mat-raised-button mat-dialog-close tabindex="-1"> {{cancelButtonText}} </button>
-</mat-dialog-actions>
+
+
+<mat-card class="example-card">
+  <mat-card-title-group class="group">
+    <mat-card-title>  {{title}} </mat-card-title>
+  </mat-card-title-group>
+  <mat-card-content>
+    <p>
+      {{message}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+    <button mat-raised-button  (click)="onCancelClick()"> {{cancelButtonText}} </button>
+  </mat-card-actions>
+</mat-card>
+

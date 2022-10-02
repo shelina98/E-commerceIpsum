@@ -1,7 +1,35 @@
-h1 {
-  color: #2557ae;
+.example-card {
+  max-width: 400px;
+  overflow:hidden;
+  padding: 0;
 }
 
+.group {
+  background-color: lightgray;
+  padding: 30px  20px 20px 20px;
+}
+
+.mat-card-title {
+  margin: 0;
+  color: red;
+}
+.mat-card-content {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 20px;
+}
 p {
-  color: gray;
+  font-size: 16px;
+  font-weight: bold;
+}
+.mat-card-actions {
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.mat-card>.mat-card-actions:last-child {
+   margin-bottom: -8px;
+   padding-bottom: 20px;
 }

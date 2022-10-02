@@ -22,6 +22,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {ChangeRootComponent} from "./_shared/change-root/change-root.component";
 
 
 
@@ -32,7 +33,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     DashboardComponent,
     PageNotFoundComponent,
     BuyerProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ChangeRootComponent
   ],
   imports: [
     CommonModule,
