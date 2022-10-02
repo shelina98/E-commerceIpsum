@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   onClick(email: string, password: string) {
    if(this.as.getAccountInfo(email,password)) {
      this.correctCredentials = true;
-     this.as.login(this.as.getAccountInfo(email,password)?.username)
+     this.as.login()
      this.rt.navigate(['/dashboard'])
    }
     else {

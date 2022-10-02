@@ -9,8 +9,6 @@ import {take} from "rxjs/operators";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  isSmall:boolean = false
   username: string | null = ""
   signinOR : string = "Sign In"
   isLoggedIn: boolean = false;
@@ -19,7 +17,7 @@ export class NavbarComponent implements OnInit {
               private authS: AuthService,) { }
 
   ngOnInit(): void {
-    this.authS.isLoggedInOb().pipe(take(1)).subscribe(
+    this.authS.isLoggedInOb().subscribe(
       res =>  {
         if(res) {
           this.isLoggedIn = true
@@ -30,7 +28,7 @@ export class NavbarComponent implements OnInit {
         }
       }
     )
-    this.username = localStorage.getItem('username')
+    this.username = localStorage.getItem('token')
   }
 
 
@@ -41,7 +39,6 @@ export class NavbarComponent implements OnInit {
     {
       this.authS.logout();
       this.router.navigate(['']);
-      window.location.reload();
     }
   }
   goToProfile() {

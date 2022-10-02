@@ -25,12 +25,9 @@ export class AuthService {
   /**
    *  Login the user then tell all the subscribers about the new status
    */
-  login(username: string | undefined) : void {
-    localStorage.setItem('token', 'JWT');
-    if (typeof username === "string") {
-      localStorage.setItem('username', username)
-    }
+  login() : void {
     this.isLoginSubject.next(true);
+    localStorage.setItem('token', 'JWT');
   }
 
   /**
@@ -38,7 +35,6 @@ export class AuthService {
    */
   logout() : void {
     localStorage.removeItem('token');
-    localStorage.removeItem('username')
     this.isLoginSubject.next(false);
   }
 
