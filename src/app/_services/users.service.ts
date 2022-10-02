@@ -29,7 +29,6 @@ export class UsersService {
       email: 'Dritan@gmail.com',
       imgUrl: ''
     }
-
   ]
 
   getAllUsers(): User[] {

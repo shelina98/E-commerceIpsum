@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../_services/auth.service";
-import {take} from "rxjs/operators";
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +8,7 @@ import {take} from "rxjs/operators";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  username: string | null = ""
+  username: string = ""
   signinOR : string = "Sign In"
   isLoggedIn: boolean = false;
 
@@ -28,7 +27,12 @@ export class NavbarComponent implements OnInit {
         }
       }
     )
-    this.username = localStorage.getItem('token')
+    this.authS.existUserOb().subscribe(
+      res => {
+        this.username = res
+      }
+    )
+
   }
 
 
@@ -38,12 +42,15 @@ export class NavbarComponent implements OnInit {
     else
     {
       this.authS.logout();
+      this.authS.unsetUser();
       this.router.navigate(['']);
     }
   }
+
   goToProfile() {
     this.router.navigate(['/profile',])
   }
+
   goToHomePage() {
     this.router.navigate([''])
   }

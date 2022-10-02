@@ -14,12 +14,16 @@ export class AuthService {
   }
   LoggedInUser: User | undefined
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
+  usernameSubject = new BehaviorSubject<string>(this.hasUsername())
   /**
    *
    * @returns {Observable<T>}
    */
   isLoggedInOb() : Observable<boolean> {
     return this.isLoginSubject.asObservable();
+  }
+  existUserOb():Observable<string> {
+    return  this.usernameSubject.asObservable();
   }
 
   /**
@@ -30,12 +34,21 @@ export class AuthService {
     localStorage.setItem('token', 'JWT');
   }
 
+  setUsername(username: string):void {
+    this.usernameSubject.next(username)
+    localStorage.setItem('username', username);
+  }
+
   /**
    * Log out the user then tell all the subscribers about the new status
    */
   logout() : void {
     localStorage.removeItem('token');
     this.isLoginSubject.next(false);
+  }
+  unsetUser():void {
+    localStorage.removeItem('username')
+    this.usernameSubject.next("")
   }
 
   /**
@@ -45,6 +58,9 @@ export class AuthService {
 
   private hasToken() : boolean {
     return !!localStorage.getItem('token');
+  }
+  private hasUsername(): string {
+    return <string>localStorage.getItem('username')
   }
 
 
