@@ -2,9 +2,15 @@
   <span> <img src="assets/logoipsum-284.svg"/></span>
   <span class="example-spacer"></span>
   <div *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" class="profile">
-    <img src="{{image}}"  class="profilePic" />
+    <div class="profilePic" [ngStyle]="{'background-color': circleColor}">
+      <img src="{{image}}" *ngIf="!showInitial" />
+      <div class="initials" *ngIf="showInitial">
+        {{ initials}}
+      </div>
+    </div>
     <p style="margin-top: 20px"> {{username}} </p>
   </div>
+
   <mat-menu #menu="matMenu">
     <button mat-menu-item *ngIf="isLoggedIn" (click)="goToProfile()" style="margin-right:10px">
       <span>Profile</span>

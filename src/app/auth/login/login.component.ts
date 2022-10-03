@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
      this.correctCredentials = true;
      this.as.setUsername(<string>(this.as.getAccountInfo(email,password)?.username))
      this.as.setPicture(<string>(this.as.getAccountInfo(email,password)?.imgUrl))
+     localStorage.setItem('name',<string>(this.as.getAccountInfo(email,password)?.name))
+     localStorage.setItem('surname',<string>(this.as.getAccountInfo(email,password)?.surname))
      this.as.login()
      this.rt.navigate(['/dashboard'])
    }

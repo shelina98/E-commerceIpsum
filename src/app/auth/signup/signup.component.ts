@@ -55,6 +55,8 @@ export class SignupComponent implements OnInit {
     this.sendUserInfoTodatabase(this.signupForm)
     this.as.setUsername(<string>(this.signupForm.controls['name'].value))
     this.as.setPicture(<string>img?.name)
+    localStorage.setItem('name',<string>(<string>(this.signupForm.controls['name'].value)))
+    localStorage.setItem('surname',<string>(<string>(this.signupForm.controls['surname'].value)))
     this.as.login()
     this.rt.navigate(['/dashboard'])
   }
