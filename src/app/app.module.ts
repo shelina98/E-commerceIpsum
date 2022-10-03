@@ -28,6 +28,7 @@ import {FormsModule} from "@angular/forms";
 import {CartComponent} from "./cart/cart.component";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -40,7 +41,8 @@ import {MatSortModule} from "@angular/material/sort";
     BuyerProductsComponent,
     ProductDetailComponent,
     ChangeRootComponent,
-    CartComponent
+    CartComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
