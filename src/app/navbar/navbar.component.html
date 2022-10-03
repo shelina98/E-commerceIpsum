@@ -1,9 +1,9 @@
 <mat-toolbar>
-  <span> <img src="assets/logoipsum-284.svg"/></span>
+  <span style="margin-top: 10px"> <img  src="assets/logo.PNG" width="40%" ></span>
   <span class="example-spacer"></span>
   <div *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" class="profile">
     <div class="profilePic" [ngStyle]="{'background-color': circleColor}">
-      <img src="{{image}}" *ngIf="!showInitial" />
+      <img class= "img" src="{{image}}" *ngIf="!showInitial" />
       <div class="initials" *ngIf="showInitial">
         {{ initials}}
       </div>
