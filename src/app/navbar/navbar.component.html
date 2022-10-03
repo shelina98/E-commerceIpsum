@@ -1,8 +1,8 @@
 <mat-toolbar>
-  <span> <img src=assets/logoipsum-284.svg"/></span>
+  <span> <img src="assets/logoipsum-284.svg"/></span>
   <span class="example-spacer"></span>
   <div *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" class="profile">
-    <img src="assets/product/cabbage.png"  class="profilePic"/>
+    <img src="{{image}}"  class="profilePic" />
     <p style="margin-top: 20px"> {{username}} </p>
   </div>
   <mat-menu #menu="matMenu">
@@ -13,12 +13,14 @@
   </mat-menu>
 
   <div class="vertical"></div>
-  <button mat-icon-button (click)="goToHomePage()">
+  <button mat-icon-button class="cart" (click)="goToHomePage()">
     <mat-icon class="material-icons-outlined">home</mat-icon>
   </button>
-  <button mat-icon-button *ngIf="isLoggedIn" (click)="goToCart()">
+  <button mat-icon-button  class="cart" *ngIf="isLoggedIn" (click)="goToCart()">
     <span class="material-icons-outlined"> shopping_bag </span>
   </button>
-  <div class="cart" (click)="signIn()" *ngIf="!isLoggedIn"> Log In</div>
+  <button mat-icon-button class="cart" (click)="signIn()" *ngIf="!isLoggedIn">
+    <span class="material-icons-outlined">login</span>
+  </button>
 
 </mat-toolbar>

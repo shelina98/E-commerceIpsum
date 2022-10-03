@@ -9,7 +9,10 @@
 }
 .example-card {
   width: 250px;
+  height: 250px;
+  margin-bottom: 20px;
 }
+
 .mat-card-avatar {
   height: 0px;
   width: 0px;
@@ -18,9 +21,11 @@
 }
 
 .mat-card-image {
-  width: calc(100%);
+  width: 150px;
+  height: 150px;
   margin: 0px;
 }
+
 .buy {
   color: #2557a7;
 }

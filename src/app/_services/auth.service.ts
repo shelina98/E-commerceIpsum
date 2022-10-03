@@ -14,8 +14,10 @@ export class AuthService {
   }
   LoggedInUser: User | undefined
   UserExist: User | undefined
+
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
   usernameSubject = new BehaviorSubject<string>(this.hasUsername())
+  profilephotoSubject = new  BehaviorSubject<string>(this.hasProfilePicture())
   /**
    *
    * @returns {Observable<T>}
@@ -27,6 +29,9 @@ export class AuthService {
     return  this.usernameSubject.asObservable();
   }
 
+  hasPhotoOb():Observable<string>{
+    return  this.profilephotoSubject.asObservable();
+  }
   /**
    *  Login the user then tell all the subscribers about the new status
    */
@@ -39,6 +44,12 @@ export class AuthService {
     this.usernameSubject.next(username)
     localStorage.setItem('username', username);
   }
+  setPicture(photoUrl: string): void{
+    this.profilephotoSubject.next(photoUrl)
+    localStorage.setItem('photoName', photoUrl)
+
+  }
+
 
   /**
    * Log out the user then tell all the subscribers about the new status
@@ -51,6 +62,10 @@ export class AuthService {
     localStorage.removeItem('username')
     this.usernameSubject.next("")
   }
+  unsetPicture():void {
+    localStorage.removeItem('photoName')
+    this.profilephotoSubject.next("")
+  }
 
   /**
    * if we have token the user is loggedIn
@@ -62,6 +77,9 @@ export class AuthService {
   }
   private hasUsername(): string {
     return <string>localStorage.getItem('username')
+  }
+  private hasProfilePicture(): string {
+    return <string>localStorage.getItem('photoName')
   }
 
 

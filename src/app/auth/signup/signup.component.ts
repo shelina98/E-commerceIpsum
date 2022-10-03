@@ -54,7 +54,7 @@ export class SignupComponent implements OnInit {
     let img = (<HTMLInputElement>this.image.nativeElement).files?.[0];
     this.sendUserInfoTodatabase(this.signupForm)
     this.as.setUsername(<string>(this.signupForm.controls['name'].value))
-    localStorage.setItem('photoname', <string>img?.name)
+    this.as.setPicture(<string>img?.name)
     this.as.login()
     this.rt.navigate(['/dashboard'])
   }

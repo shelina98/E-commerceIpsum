@@ -7,14 +7,9 @@
   background-color: white;
   height: 55px;
 }
-.cart{
-  padding: 5px 0px ;
-  margin-left:  20px;
-  font-weight: 100;
-}
 .cart:hover{
-  border-bottom: 1px solid #2557a7;
   cursor : pointer;
+  color: #2557a7;
 }
 .vertical {
   background-color: lightgray;
@@ -26,6 +21,7 @@
   width: 25px;
   height: 25px;
   margin-right: 5px;
+  margin-top: 5px;
 
 }
 .profile {

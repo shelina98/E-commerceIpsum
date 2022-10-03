@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   username: string = ""
   signinOR : string = "Sign In"
   isLoggedIn: boolean = false;
+  image: string = ""
 
   constructor(private router: Router,
               private authS: AuthService,) { }
@@ -33,6 +34,14 @@ export class NavbarComponent implements OnInit {
       }
     )
 
+    this.authS.hasPhotoOb().subscribe(
+      res => {
+        console.log(res, name)
+        let url = 'assets/user/'
+        this.image = 'assets/user/' + res
+      }
+    )
+
   }
 
 
@@ -43,6 +52,7 @@ export class NavbarComponent implements OnInit {
     {
       this.authS.logout();
       this.authS.unsetUser();
+      this.authS.unsetPicture();
       this.router.navigate(['']);
     }
   }
