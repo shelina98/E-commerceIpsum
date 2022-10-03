@@ -30,6 +30,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import { ProfileComponent } from './profile/profile.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 
 
@@ -70,6 +71,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatSortModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatInputModule,
 
   ],
   entryComponents:[ProductDetailComponent],

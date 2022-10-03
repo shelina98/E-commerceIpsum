@@ -25,6 +25,23 @@
   align-self: center;
   justify-self: center;
 }
+.otherinfo {
+  padding: 20px 0px;
+  align-self: center;
+  justify-self: center;
+}
+
+.initials {
+  color: #FFFFFF;
+  line-height: 15px;
+  border-radius: 50%;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+}
 
 .mat-raised-button {
   background-color: #2557a7;
@@ -36,6 +53,9 @@
   margin-bottom: 1vh;
 }
 
+.mat-form-field-wrapper {
+  padding-bottom:0 !important;
+}
 
 .post-click-error {
   font-size: smaller;

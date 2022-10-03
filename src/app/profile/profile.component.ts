@@ -4,7 +4,6 @@ import {UsersService} from "../_services/users.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthService} from "../_services/auth.service";
 import {FormBuilder, Validators} from "@angular/forms";
-import {RegexpValidator} from "../_validators/regexpValidator.validator";
 
 @Component({
   selector: 'app-profile',
@@ -24,6 +23,14 @@ export class ProfileComponent implements OnInit {
   profile!: User
   url!:string
   default:boolean = false
+  initials:string = "";
+  circleColor:string = "";
+  private color = [
+    '#EB7181',
+    '#468547',
+    '#FFD558',
+    '#3670B2'
+  ]
 
   constructor(private userService: UsersService,
               private snackBar: MatSnackBar,
@@ -37,6 +44,14 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  private  createInitials(): void {
+    let initials = "";
+    let name = localStorage.getItem('name')?.charAt(0)
+    let surname = localStorage.getItem('surname')?.charAt(0)
+    this.initials = <string>name + <string>surname
+  }
+
+
   setUser(user: User) {
     this.signupForm.setValue({
       name: user.name,
@@ -49,53 +64,16 @@ export class ProfileComponent implements OnInit {
       this.default = false;
     }
     else {
+      this.createInitials()
+      const  randomIndex = Math.floor(Math.random() * Math.floor(this.color.length))
+      this.circleColor = this.color[randomIndex]
       this.default = true;
     }
   }
 
   editUser():any {
-
-  }
-
-  // editUser(): any {
-  //   let img = (<HTMLInputElement>this.image.nativeElement).files?.[0];
-  //   if(img) {
-  //     return new Promise((resolve, reject) => {
-  //       let ref = this.storage.ref('jobs' + img?.name)
-  //       ref.put(img).then(() => {
-  //         ref.getDownloadURL().subscribe(imgUrl => {
-  //           this.fs.collection('users').doc(this.profile.uid).update(
-  //             {
-  //               username: this.username,
-  //               // skills: user.skills,
-  //               imgUrl: imgUrl
-  //             }
-  //           )
-  //         })
-  //       })
-  //     })
-  //
-  //   }
-  //   else {
-  //     this.fs.collection('users').doc(this.profile.uid).update(
-  //       {
-  //         username: this.username,
-  //         // imgUrl: 'assets/seekerLogo.PNG'
-  //         // skills: skills,
-  //       }
-  //     ).then(
-  //       ref => {
-  //         this.snackBar.open('Job have updated your profile.', 'OK', {
-  //           duration: 2000,
-  //           panelClass: ['blue-snackbar', 'login-snackbar'],
-  //         })
-  //
-  //       }
-  //
-  //     )
-  //   }
-  // }
-  onClick(value: any) {
-
+    let img = (<HTMLInputElement>this.image.nativeElement).files?.[0];
+    console.log(<string>img?.name)
+    this.url = ""
   }
 }
