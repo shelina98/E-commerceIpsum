@@ -18,6 +18,8 @@
   width: 0px;
 }
 .mat-card-header {
+  color: green;
+
 }
 .mat-card-content {
   margin-bottom: 0;

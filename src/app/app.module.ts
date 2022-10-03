@@ -24,11 +24,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import {MatDialogModule} from "@angular/material/dialog";
 import {ChangeRootComponent} from "./_shared/change-root/change-root.component";
 import {NgxStarRatingModule} from "ngx-star-rating";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CartComponent} from "./cart/cart.component";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import { ProfileComponent } from './profile/profile.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 
@@ -67,6 +68,8 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     MatTableModule,
     MatSortModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
 
   ],
   entryComponents:[ProductDetailComponent],
