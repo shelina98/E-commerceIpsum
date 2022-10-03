@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   signupForm = this.fb.group({
     name: ['', [Validators.required]],
     surname:['',[Validators.required]],
+    username:['',[Validators.required]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   },);
 
@@ -57,6 +58,7 @@ export class ProfileComponent implements OnInit {
         }
       }
     )
+
   }
 
   private  createInitials(): void {
@@ -72,6 +74,7 @@ export class ProfileComponent implements OnInit {
       name: user.name,
       surname: user.surname,
       password: user.password,
+      username:user.username,
     });
     this.url = user.imgUrl
     if (this.url != "") {
@@ -88,9 +91,17 @@ export class ProfileComponent implements OnInit {
 
   editUser(signupForm: FormGroup):any {
     let img = (<HTMLInputElement>this.image.nativeElement).files?.[0];
-    // this.as.setUsername(signupForm.controls['username'].value)
-    this.as.setPicture(<string>img?.name)
+    if(<string>img?.name) {
+      this.as.setPicture(<string>img?.name)
+    }
+    this.as.setUsername(signupForm.controls['username'].value)
     localStorage.setItem('name',signupForm.controls['name'].value)
     localStorage.setItem('surname',signupForm.controls['surname'].value)
+
+    this.snackBar.open('You have edited you profile settings.', 'OK', {
+      duration: 2000,
+      panelClass: ['blue-snackbar', 'cart-snackbar'],
+    })
   }
+
 }

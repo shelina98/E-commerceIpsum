@@ -13,6 +13,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border: none;
 }
 
+.cart-snackbar {
+  background: white;
+  color: gray;
+}
+.cart-snackbar button {
+  background-color: rgb(37	,87	,174);
+  color: white;
+  border: none;
+}
+
 .mat-dialog-container {
   padding: 0 !important;
 }

@@ -16,7 +16,7 @@ export class UsersService {
       username:'johnd',
       name:'John',
       surname:'Doe',
-      password:'m38rmF$',
+      password:'12345678',
       email:'John@gmail.com',
       imgUrl:''
     },

@@ -32,6 +32,13 @@
           <div>
             <mat-form-field>
               <input
+                matInput type="text" id="username" formControlName="username" class="form-control" placeholder="Username"/>
+              <mat-error *ngIf="signupForm.get('username')?.hasError('required')">Username is required!</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input
                 matInput
                 type="password"
                 id="password"
@@ -52,7 +59,7 @@
             type="button"
             mat-raised-button
             color="primary"
-            (click)="editUser(this.signupForm)" [disabled]="!signupForm.valid">
+            (click)="editUser(this.signupForm)" [disabled]="!signupForm.valid && signupForm.untouched">
             Edit
           </button>
         </div>
