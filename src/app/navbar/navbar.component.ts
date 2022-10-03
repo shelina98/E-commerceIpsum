@@ -36,9 +36,10 @@ export class NavbarComponent implements OnInit {
 
     this.authS.hasPhotoOb().subscribe(
       res => {
-        console.log(res, name)
         let url = 'assets/user/'
         this.image = 'assets/user/' + res
+        console.log(res)
+        console.log(this.image)
       }
     )
 
