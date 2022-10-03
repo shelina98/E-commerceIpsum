@@ -1,17 +1,19 @@
-import {AbstractControl} from "@angular/forms";
+import { AbstractControl } from '@angular/forms';
 
-export function PasswordValidator(control : AbstractControl): { [ key:string] : boolean } | null {
+export interface ValidationResult {
+  [key: string]: boolean;
+}
 
+export class PasswordValidator {
 
-  const password = control.get('password');
-  const confirmPassword = control.get('confirmPassword');
-  if(password?.pristine || confirmPassword?.pristine)
-  {
+  public static strong(control: AbstractControl): ValidationResult | null {
+    let hasNumber = /\d/.test(control.value);
+    let hasUpper = /[A-Z]/.test(control.value);
+    const valid = hasNumber && hasUpper;
+    if (!valid) {
+      // return what´s not valid
+      return { strong: true };
+    }
     return null;
   }
-
-  return password && confirmPassword && password.value !== confirmPassword.value ?
-    { 'misMatch': true} :
-    null;
-
 }

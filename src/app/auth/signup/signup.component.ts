@@ -1,6 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/_models/user.model';
 import { RegexpValidator } from 'src/app/_validators/regexpValidator.validator';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PasswordValidator} from "src/app/_validators/password.validator";
@@ -22,7 +21,7 @@ export class SignupComponent implements OnInit {
     name: ['', [Validators.required]],
     surname:['',[Validators.required]],
     email: ['', [Validators.required, RegexpValidator.emailPatternValidator]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    password: ['', [Validators.required, Validators.minLength(8), PasswordValidator.strong]],
   },);
 
 

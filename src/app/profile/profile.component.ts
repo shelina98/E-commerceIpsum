@@ -4,6 +4,7 @@ import {UsersService} from "../_services/users.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthService} from "../_services/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PasswordValidator} from "../_validators/password.validator";
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,7 @@ export class ProfileComponent implements OnInit {
     name: ['', [Validators.required]],
     surname:['',[Validators.required]],
     username:['',[Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    password: ['', [Validators.required, Validators.minLength(8), PasswordValidator.strong]],
   },);
 
   profile!: User

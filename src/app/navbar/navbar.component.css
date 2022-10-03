@@ -6,6 +6,9 @@
   border-bottom: 1px solid lightgray;
   background-color: white;
   height: 55px;
+  top: 0;
+  position: fixed;
+  z-index: 999999999;
 }
 .cart:hover{
   cursor : pointer;

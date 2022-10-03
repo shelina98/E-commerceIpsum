@@ -46,7 +46,13 @@
                 class="form-control"
                 placeholder="Password"
               />
+
               <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Password is required!</mat-error>
+              <mat-error
+                *ngIf="
+              signupForm.controls['password'].touched &&
+              signupForm.controls['password'].hasError('strong')">Must have at least one number and one uppercase letter.</mat-error>
+
               <mat-error
                 *ngIf="
               signupForm.controls['password'].touched &&
