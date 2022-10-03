@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
      this.as.setPicture(<string>(this.as.getAccountInfo(email,password)?.imgUrl))
      localStorage.setItem('name',<string>(this.as.getAccountInfo(email,password)?.name))
      localStorage.setItem('surname',<string>(this.as.getAccountInfo(email,password)?.surname))
+     localStorage.setItem('email',email)
      this.as.login()
      this.rt.navigate(['/dashboard'])
    }

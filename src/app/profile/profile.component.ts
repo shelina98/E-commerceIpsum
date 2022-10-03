@@ -3,7 +3,7 @@ import {User} from "../_models/user.model";
 import {UsersService} from "../_services/users.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthService} from "../_services/auth.service";
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
 
   profile!: User
   url!:string
+
   default:boolean = false
   initials:string = "";
   circleColor:string = "";
@@ -38,10 +39,24 @@ export class ProfileComponent implements OnInit {
               private fb: FormBuilder) {}
 
   ngOnInit() {
-    let user = this.as.getAccountWithGivenEmail("Dritan@gmail.com")
+    let user = this.as.getAccountWithGivenEmail(<string>localStorage.getItem('email'))
     if(user) {
      this.setUser(user)
     }
+
+    this.as.hasPhotoOb().subscribe(
+      res => {
+        if(res == null || res == "") {
+          this.default = true;
+          const  randomIndex = Math.floor(Math.random() * Math.floor(this.color.length))
+          this.circleColor = this.color[randomIndex]
+        }
+        else {
+          this.default = false
+          this.url = 'assets/user/' + res
+        }
+      }
+    )
   }
 
   private  createInitials(): void {
@@ -60,7 +75,7 @@ export class ProfileComponent implements OnInit {
     });
     this.url = user.imgUrl
     if (this.url != "") {
-      this.url = user.imgUrl
+      this.url =  'assets/user/' + user.imgUrl
       this.default = false;
     }
     else {
@@ -71,9 +86,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  editUser():any {
+  editUser(signupForm: FormGroup):any {
     let img = (<HTMLInputElement>this.image.nativeElement).files?.[0];
-    console.log(<string>img?.name)
-    this.url = ""
+    // this.as.setUsername(signupForm.controls['username'].value)
+    this.as.setPicture(<string>img?.name)
+    localStorage.setItem('name',signupForm.controls['name'].value)
+    localStorage.setItem('surname',signupForm.controls['surname'].value)
   }
 }

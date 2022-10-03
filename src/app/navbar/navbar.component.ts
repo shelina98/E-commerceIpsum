@@ -78,6 +78,7 @@ export class NavbarComponent implements OnInit {
       this.authS.unsetPicture();
       localStorage.removeItem('name')
       localStorage.removeItem('surname')
+      localStorage.removeItem('email')
       this.router.navigate(['']);
     }
   }

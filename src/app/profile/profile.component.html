@@ -12,6 +12,7 @@
             <p>{{ initials}}</p>
             </div>
           </div>
+
         </div>
         <div class="otherinfo">
           <div>
@@ -51,7 +52,7 @@
             type="button"
             mat-raised-button
             color="primary"
-            (click)="editUser()" [disabled]="!signupForm.valid">
+            (click)="editUser(this.signupForm)" [disabled]="!signupForm.valid">
             Edit
           </button>
         </div>
