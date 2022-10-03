@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span style="margin-top: 10px"> <img  src="assets/logo.PNG" width="40%" ></span>
+  <span style="margin-top: 10px; cursor: pointer" (click)="goToHomePage()"> <img  src="assets/logo.PNG" width="40%" ></span>
   <span class="example-spacer"></span>
   <div *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" class="profile">
     <div class="profilePic" [ngStyle]="{'background-color': circleColor}">

@@ -5,13 +5,14 @@
 }
 
 .group {
-  background-color: lightgray;
+  background-color: orange;
   padding: 30px  20px 20px 20px;
 }
 
 .mat-card-title {
   margin: 0;
-  color: red;
+  color: white;
+
 }
 .mat-card-content {
   display: flex;
@@ -20,7 +21,7 @@
 }
 p {
   font-size: 16px;
-  font-weight: bold;
+  color: red;
 }
 .mat-card-actions {
   padding: 20px 20px;
