@@ -1,21 +1,44 @@
-.thumbnail {
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  background-size: cover;
+.flex {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.example-container {
+  height: 270px;
+  overflow: auto;
+  width: 600px;  
+  border-radius: 5px;
+}
+.clear {
+  background-color: red;
+  color: white;
+  margin: 0px 20px 0px 20px;
 }
 
-.btn-primary {
-  background-color: #c1d62e;
-  border-color: #c1d62e;
+.buy{
+  background-color: green;
+  color: white;
 }
 
-.btn-primary:hover {
-  background-color: #b1c522;
-  border-color: #b1c522;
+table {
+  width: 100%;
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
-  background-color: #c1d62e;
-  border-color: #c1d62e;
+tr.mat-footer-row {
+  font-weight: bold;
 }
+tr{
+  color: #e0e0e0;
+  padding: 0;
+}
+.mat-header-cell {
+  color: white;
+}
+tr.mat-header-row {
+  background-color:#2557a7 ;
+}
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+

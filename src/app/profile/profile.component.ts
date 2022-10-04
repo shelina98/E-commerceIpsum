@@ -43,6 +43,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     let user = this.as.getAccountWithGivenEmail(<string>localStorage.getItem('email'))
     if(user) {
+     
      this.setUser(user)
     }
 

@@ -10,10 +10,9 @@
   overflow-y: scroll;
 }
 .example-card {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 20px;
-
 }
 
 .mat-card-avatar {
@@ -28,7 +27,7 @@
   margin-bottom: 0;
 }
 .mat-card-actions {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .mat-card-image {
   width: 150px;

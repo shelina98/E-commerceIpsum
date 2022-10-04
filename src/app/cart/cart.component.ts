@@ -1,52 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from "../_services/cart.service";
-import {Observable} from "rxjs";
 import {Title} from "@angular/platform-browser";
 import {Product} from "../_models/product";
+import { ShoppingCart } from '../_models/cart';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {  Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { itemsOfShoppingCart } from '../_models/item';
 
-export  class itemsOfShoppingCart {
-  product!: Product;
-  quantity!: number;
-  constructor(product: Product, quantity:number) {
-  }
-  get totalPrice() {
-    return this.product.price * this.quantity;
-  }
-}
-
-export class ShoppingCart {
-  items: itemsOfShoppingCart[] = [];
-  userId: number = 0;
-
-  constructor(item: itemsOfShoppingCart[], userId: number) {
-  }
-  getQuantity(product: Product): number{
-    let quant = 0;
-    this.items?.forEach(element => {
-      if (element.product.uid === product.uid) {
-        quant = element.quantity;
-      }
-    });
-    return quant;
-  }
-
-  public totalPrice() {
-    let sum = 0;
-    this.items?.forEach(element => {
-      sum += element.product.price
-   })
-    return sum;
-  }
-
-  get totalItemsCount() {
-    let count = 0;
-    this.items?.forEach(element => {
-        count += element.quantity;
-    })
-
-    return count;
-  }
-}
 
 @Component({
   selector: 'app-cart',
@@ -56,26 +17,50 @@ export class ShoppingCart {
 
 export class CartComponent implements OnInit {
 
-  cart$!: Observable<ShoppingCart[]>;
+  
   show!: boolean;
+  cart!:ShoppingCart;
+  dataSource!: MatTableDataSource<itemsOfShoppingCart>;
+
 
   constructor(private cartService: CartService,
-              private title: Title) { }
+              private title: Title,
+              private snackBar: MatSnackBar,
+              private rt: Router) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.title.setTitle("Cart");
-    this.cart$ = this.cartService.getCart();
-    this.cart$.subscribe( cart => {
-      this.show = !!cart[0].items.length
+    this.cart = this.cartService.getCart(2);
 
-    })
+    if(this.cart.items.length ){
+      this.show = !!this.cart.items.length
+    }
+
+    this.dataSource = new MatTableDataSource(this.cart.items)
+  }
+
+  displayedColumns = ['Title', 'Price', 'Quantity','Total'];
+
+  getTotalCost() {
+    return this.cart.items.map(t => t.totalPrice).reduce((acc, value) => acc + value, 0);
   }
 
   clearCart() {
-    this.cartService.clearCart()
+    this.cart.items = []
+    this.dataSource = new MatTableDataSource(this.cart.items)
   }
 
+  purchase() {
+    this.clearCart()
+     this.snackBar.open('You purchased your items.', 'OK', {
+      duration: 5000,
+      panelClass: ['blue-snackbar', 'edit-snackbar'],
+    })
+    this.rt.navigate(['/dashboard'])
+  }
+  
   deleteItem(product: Product) {
 
   }
+
 }
