@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {  Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { itemsOfShoppingCart } from '../_models/item';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class CartComponent implements OnInit {
   show!: boolean;
   cart!:ShoppingCart;
   dataSource!: MatTableDataSource<itemsOfShoppingCart>;
-
+  public quantity!:FormControl;
 
   constructor(private cartService: CartService,
               private title: Title,
@@ -39,7 +40,7 @@ export class CartComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.cart.items)
   }
 
-  displayedColumns = ['Title', 'Price', 'Quantity','Total'];
+  displayedColumns = ["Photo",'Title', 'Price', 'Quantity','Total'];
 
   getTotalCost() {
     return this.cart.items.map(t => t.totalPrice).reduce((acc, value) => acc + value, 0);
@@ -50,13 +51,18 @@ export class CartComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.cart.items)
   }
 
-  purchase() {
+    purchase() {
     this.clearCart()
-     this.snackBar.open('You purchased your items.', 'OK', {
+    let snackBarRef =  this.snackBar.open('You purchased your items.', 'OK', {
       duration: 5000,
       panelClass: ['blue-snackbar', 'edit-snackbar'],
     })
-    this.rt.navigate(['/dashboard'])
+
+    snackBarRef.afterDismissed().subscribe(info => {
+      if (info.dismissedByAction === true || info.dismissedByAction === false ) {
+        this.rt.navigate(['/dashboard'])
+      }
+    });
   }
   
   deleteItem(product: Product) {

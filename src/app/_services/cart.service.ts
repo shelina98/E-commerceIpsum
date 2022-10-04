@@ -4,6 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import { ShoppingCart } from '../_models/cart';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -46,21 +47,48 @@ export class CartService {
     userId:2
    },
   ]
-  cartOfUser!: ShoppingCart
-  constructor(private  http: HttpClient) { }
 
-  addToCart(product: Product) {
-    console.log(product)
-  }
+  cartOfUser!: ShoppingCart
+  constructor(private  http: HttpClient,private snackBar: MatSnackBar) { }
+
 
   getCart(userId: number) {
     this.carts.forEach(ele => {
       if(ele.userId = userId){
         this.cartOfUser = ele
-
       }
     })
    return this.cartOfUser
+  }
+
+  
+  addToCart(product: Product) {
+    this.getCart(2)
+    let add: boolean = true;
+    this.cartOfUser.items.forEach(
+      ele => {
+        if(ele.product.uid == product.uid) {
+         add =  false;
+        } 
+      })
+
+    if(add == true) {
+      this.cartOfUser.items.push({product:product, quantity:1, get totalPrice()
+        {
+          return this.product.price * this.quantity;
+        }})
+
+      this.snackBar.open('You have added this item to cart.', 'OK', {
+          duration: 2000,
+          panelClass: ['blue-snackbar', 'edit-snackbar'],
+        })
+    }
+    else {
+      this.snackBar.open('You have already added this item to cart.', 'OK', {
+        duration: 2000,
+        panelClass: ['blue-snackbar', 'edit-snackbar'],
+      })
+    }
   }
 
   async clearCart() {

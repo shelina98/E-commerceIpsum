@@ -10,7 +10,7 @@ export class DataService implements InMemoryDbService {
   createDb() {
     const products = [
       {
-        id: 2,
+        uid: 2,
         title: 'Cabbage',
         description: 'amet consectetur adipisicing elit.Lorem ipsum dolor sit ',
         price: '80',
@@ -19,7 +19,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/cabbage.png"
       },
       {
-        id: 1,
+        uid: 1,
         title: 'Broccoli',
         description: 'Lorem ipsum . Voluptatem excepturi magnam nostrum dolore recusandae',
         price: '40',
@@ -28,7 +28,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/broccoli.png"
       },
       {
-        id: 3,
+        uid: 3,
         title: 'Onion',
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '30',
@@ -37,7 +37,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/onion.png"
       },
       {
-        id: 4,
+        uid: 4,
         title: 'Olives',
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '30',
@@ -46,7 +46,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/olives.png"
       },
       {
-        id: 5,
+        uid: 5,
         title: 'Olive Oil',
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '30',
@@ -55,7 +55,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/olive-oil.png"
       },
       {
-        id: 6,
+        uid: 6,
         title: 'Carrot',
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '30',
@@ -64,7 +64,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/carrot .png"
       },
       {
-        id: 7,
+        uid: 7,
         title: 'Chilli Pepper',
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '30',
@@ -73,7 +73,7 @@ export class DataService implements InMemoryDbService {
         imgUrl:"assets/product/chilli-pepper.png"
       },
       {
-        id: 8,
+        uid: 8,
         title: 'Eggplant',
         description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
         price: '30',
@@ -81,33 +81,6 @@ export class DataService implements InMemoryDbService {
         rating: 4,
         imgUrl:"assets/product/eggplant.png"
       },
-      {
-        id: 8,
-        title: 'Eggplant',
-        description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
-        price: '30',
-        amount:10,
-        rating: 4,
-        imgUrl:"assets/product/eggplant.png"
-      },
-      {
-        id: 8,
-        title: 'Eggplant',
-        description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
-        price: '30',
-        amount:10,
-        rating: 4,
-        imgUrl:"assets/product/eggplant.png"
-      },
-      {
-        id: 8,
-        title: 'Eggplant',
-        description: 'Voluptatem excepturi harum rerum aliquam magnam nostrum dolore recusandae',
-        price: '30',
-        amount:10,
-        rating: 4,
-        imgUrl:"assets/product/eggplant.png"
-      }
     ];
     return { products,};
   }
