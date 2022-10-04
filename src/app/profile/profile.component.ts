@@ -101,7 +101,7 @@ export class ProfileComponent implements OnInit {
 
     this.snackBar.open('You have edited you profile settings.', 'OK', {
       duration: 2000,
-      panelClass: ['blue-snackbar', 'cart-snackbar'],
+      panelClass: ['blue-snackbar', 'edit-snackbar'],
     })
   }
 

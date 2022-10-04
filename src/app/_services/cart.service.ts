@@ -3,20 +3,21 @@ import {Product} from "../_models/product";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {ShoppingCart} from "../cart/cart.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private productsUrl = 'api/products/';
+  private cartUrl = 'api/carts/';
   constructor(private  http: HttpClient) { }
 
   addToCart(product: Product) {
     console.log(product)
   }
 
-  getCart(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productsUrl).pipe(
+  getCart(): Observable<ShoppingCart[]> {
+    return this.http.get<ShoppingCart[]>(this.cartUrl).pipe(
       retry(2),
       catchError((error: HttpErrorResponse) => {
         console.error(error);
@@ -24,4 +25,21 @@ export class CartService {
       })
     );
   }
+
+
+  async clearCart() {
+      // const cartId = await this.getOrCreateCartId();
+      //
+      // this.fs.collection('cart').doc(cartId).
+      // collection('items').snapshotChanges()
+      //   .pipe(take(1))
+      //   .subscribe(products => {
+      //     products.map(productItem =>
+      //       this.fs.collection('cart').doc(cartId)
+      //         .collection('items').doc(productItem.payload.doc.id).delete()
+      //     );
+      //   });
+    }
+
+
 }

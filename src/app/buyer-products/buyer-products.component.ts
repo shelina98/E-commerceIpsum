@@ -45,6 +45,10 @@ export class BuyerProductsComponent implements OnInit, OnDestroy {
       res => {
         if (res) {
            this.cartService.addToCart(product);
+          this.snackBar.open('You have added this item to cart.', 'OK', {
+            duration: 2000,
+            panelClass: ['blue-snackbar', 'edit-snackbar'],
+          })
         } else {
           console.log('not added')
           this.snackBar.open('You have to login to add items to cart.', 'OK', {

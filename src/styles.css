@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"); /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css"
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -13,11 +14,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border: none;
 }
 
-.cart-snackbar {
+.edit-snackbar {
   background: white;
   color: gray;
 }
-.cart-snackbar button {
+.edit-snackbar button {
   background-color: rgb(37	,87	,174);
   color: white;
   border: none;
@@ -29,4 +30,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-card-header-text {
   margin: 0 !important;
+}
+
+.mat-typography {
+  overflow-y: hidden;
 }

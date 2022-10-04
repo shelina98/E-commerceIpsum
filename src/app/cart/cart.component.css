@@ -1,33 +1,21 @@
-.flex-it {
-  display: flex;
-  flex-direction: column;
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
   background-size: cover;
-  max-height: 100%;
-}
-.mat-elevation-z8 {
-  max-height: 100%;
-  overflow-y: auto;
-  background-color: lightgray;
-  padding: 20px;
-  align-self: center;
-}
-.clear {
-  background-color: red;
-  color: white;
-  margin: 0px 20px 0px 20px;
 }
 
-.buy{
-  background-color: green;
-  color: white;
+.btn-primary {
+  background-color: #c1d62e;
+  border-color: #c1d62e;
 }
 
-
-table {
-  margin-top: 20px;
-  width: 100%;
+.btn-primary:hover {
+  background-color: #b1c522;
+  border-color: #b1c522;
 }
-th {
-  color: #2557a7;
-  font-size: 14px;
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #c1d62e;
+  border-color: #c1d62e;
 }

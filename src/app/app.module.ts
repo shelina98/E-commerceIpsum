@@ -31,6 +31,7 @@ import {MatSortModule} from "@angular/material/sort";
 import { ProfileComponent } from './profile/profile.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -72,6 +73,7 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    NgbModule,
 
   ],
   entryComponents:[ProductDetailComponent],
