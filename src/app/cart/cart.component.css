@@ -5,7 +5,7 @@
   align-items: center;
 }
 .example-container {
-  height: 270px;
+  height: 300px;
   overflow: auto;
   width: 600px;  
   border-radius: 5px;
